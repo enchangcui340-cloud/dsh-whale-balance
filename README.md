@@ -27,7 +27,7 @@ DeepSeek Harness 原生插件：页面右下角一只小鲸鱼，气泡里实时
    "dsh-whale-balance": "file:./node_modules/dsh-whale-balance"
    ```
 
-3. （可选）在 `~/.dsh/profiles/web/cordis.patch.yml` 里加上面的 insert 段（不加则用默认鲸鱼图）。
+3. 在 `~/.dsh/profiles/web/cordis.patch.yml` 里加上面的 insert 段（不加则用默认鲸鱼图）。
 
 重启 `dsh web`，完成。
 
