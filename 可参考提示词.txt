@@ -1,0 +1,16 @@
+
+藍毛不是败犬
+鲸鱼娘余额提醒 插件生成提示词
+帮我一步到位写一个 DeepSeek Harness（DSH）动态 Cordis 插件，功能是在页面右下角显示一个 DeepSeek 小鲸鱼余额挂件。
+
+【图片】用本地文件 C:\。。。\DSniang02.png（1026×1026 像素），这张图里已经画好了小鲸鱼和一个椭圆对话气泡，所以不要再自己生成鲸鱼或气泡，只做文字叠加。
+
+【气泡几何】气泡是椭圆，中心点在图片像素坐标 (455, 247)（原点为图片左上角，单位像素），长轴 710、纵轴 430，气泡背景是纯白 #ffffff。
+
+【文字】颜色用色号 #536ba9，显示三行：「DeepSeek 余额」标签 + 余额金额 + 提示语（如「点击刷新」）。文字的位置和字号都要随图片整体缩放联动（图片显示宽度约 280px，文字用百分比定位 + calc 字号）。
+
+【余额来源】Host 端调用 DeepSeek 官方接口 GET https://api.deepseek.com/user/balance，请求头 Authorization: Bearer <key>，key 从 DSH 凭据服务读取 DEEPSEEK_API_KEY，返回 balance_infos[0].total_balance 和 currency。
+
+【实现约束】Host 端用 webServer 注册一个图片路由把上面的本地 PNG 提供给页面（http 页面不能直接加载 file://），并注册一个余额 JSON 路由；Client 端用浏览器 fetch 拉余额。挂件要支持：按住拖动（限制在视口内）、点击刷新（位移小于 3px 算点击、否则算拖动）、每 60 秒自动刷新。
+
+使用这个生成后字体可能会偏小 最好再让他把字体增大到1.5倍 视觉效果更佳
