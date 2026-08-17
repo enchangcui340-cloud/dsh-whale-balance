@@ -5,7 +5,7 @@ DeepSeek Harness 原生插件：页面右下角一只小鲸鱼，气泡里实时
 ## 快速使用
 
 1. 按下方「安装」装好后，**重启 `dsh web`**；
-2. 右下角自动出现小鲸鱼并显示余额——**默认就是内置的鲸鱼图，无需任何配置**；
+2. 右下角自动出现小鲸鱼并显示余额——**默认就是内置的鲸鱼图，无需配置图片**；
 3. 点一下小鲸鱼 = 手动刷新；按住拖动 = 换位置；每 60 秒自动刷新一次。
 
 想换成自己的图片？在 profile 的 `cordis.patch.yml` 里加 `imagePath` 配置：
@@ -27,7 +27,7 @@ DeepSeek Harness 原生插件：页面右下角一只小鲸鱼，气泡里实时
    "dsh-whale-balance": "file:./node_modules/dsh-whale-balance"
    ```
 
-3. 在 `~/.dsh/profiles/web/cordis.patch.yml` 里加上面的 insert 段（不加则用默认鲸鱼图）。
+3. 在 `~/.dsh/profiles/web/cordis.patch.yml` 里加上面的 insert 段——**这步是加载插件，必做**；只有里面的 `imagePath` 一行可选（不填就用内置鲸鱼图）。
 
 重启 `dsh web`，完成。
 
